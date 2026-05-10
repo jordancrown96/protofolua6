@@ -1,0 +1,1892 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تاج الأردن | Jordan Crown</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #C8963E;
+    --gold-light: #FFD591;
+    --gold-dark: #8B6914;
+    --bg: #FFD591;
+
+    --brown-dark: #3D2206;
+    --brown-mid: #6B3A10;
+    --brown-light: #A0621F;
+
+    /* Typography colors (replaces hard-coded hex values for consistency) */
+    --text-hero: #E8C88A;
+    --text-muted: #A88040;
+    --text-card: #B8956A;
+    --text-accent: #D4A96A;
+
+    --red-jordan: #CE1126;
+    --green-jordan: #007A3D;
+    --black: #1A0A00;
+    --cream: #FFF8EE;
+  }
+
+
+  body {
+    background-color: var(--bg);
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    color: var(--brown-dark);
+    overflow-x: hidden;
+
+    /* Typography rendering consistency (helps especially on RTL pages) */
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.7;
+  }
+
+  p, li {
+    line-height: 1.9;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: linear-gradient(135deg, var(--brown-dark) 0%, #5C2D0A 50%, var(--brown-dark) 100%);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    min-height: 80px;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .logo-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(200,150,62,0.5));
+  }
+
+  .header-title {
+    color: var(--gold-light);
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  }
+
+  .header-title span {
+    display: block;
+    font-size: 0.85rem;
+    color: #d3a969;
+    font-weight: 500;
+  }
+
+  nav {
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  nav a {
+    color: #D4A96A;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+
+  nav a:hover {
+    background: rgba(200,150,62,0.2);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(180deg, var(--brown-dark) 0%, #4A1E05 40%, var(--bg) 100%);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(200,150,62,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(200,150,62,0.06) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .jordan-flags {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+
+.hero-logo {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+    /* أزلنا display: block و margin من هنا */
+    filter: drop-shadow(0 8px 30px rgba(200,150,62,0.4));
+    animation: float 4s ease-in-out infinite;
+    cursor: pointer;
+    vertical-align: middle; /* لمنع أي فراغات تحت الصورة */
+  }
+
+  /* إضافة تنسيق للرابط المحيط بالصورة (الزر) */
+  .logo-link {
+    display: inline-block; /* يجعل الرابط بحجم الصورة فقط */
+    margin: 0 auto 2rem;   /* نقلنا التوسيط والمساحة للرابط نفسه */
+    text-align: center;    /* لضمان التوسط */
+    text-decoration: none;
+    line-height: 0;        /* يمنع أي زيادة في مساحة الضغط */
+  }
+
+  /* حاوية الرابط (إذا لم يكن الرابط في حاوية تتوسط الصفحة تلقائياً) */
+  .logo-container {
+    text-align: center;    /* لتوسيط الرابط في منتصف الصفحة */
+    width: 100%;
+  }
+
+
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--gold-light);
+    text-shadow: 2px 2px 0 var(--brown-dark), 0 0 30px rgba(200,150,62,0.3);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+  }
+
+  .hero h2 {
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    font-weight: 600;
+    color: #D4A96A;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero p {
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.05rem;
+    color: #E8C88A;
+    line-height: 1.8;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, #E8B050 50%, var(--gold-dark) 100%);
+    color: var(--brown-dark);
+    font-weight: 900;
+    font-size: 1.1rem;
+    padding: 0.9rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(200,150,62,0.4);
+    transition: all 0.2s;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200,150,62,0.5);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--gold-light);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(200,150,62,0.15);
+    transform: translateY(-2px);
+  }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+    margin: 2rem 0;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .divider-icon {
+    color: var(--gold);
+    font-size: 1.5rem;
+  }
+
+  /* ===== STATS ===== */
+  .stats {
+    background: var(--brown-dark);
+    padding: 2.5rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .stat-item {
+    padding: 1.5rem 1rem;
+    border: 1px solid rgba(200,150,62,0.3);
+    border-radius: 10px;
+    background: rgba(200,150,62,0.05);
+    transition: all 0.2s;
+  }
+
+  .stat-item:hover {
+    border-color: var(--gold);
+    background: rgba(200,150,62,0.1);
+    transform: translateY(-3px);
+  }
+
+  .stat-num {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    /* Dark-section contrast: avoid muted/brown on dark background */
+    color: var(--gold-light);
+    opacity: 0.95;
+    margin-top: 0.3rem;
+  }
+
+
+
+  /* ===== MAIN CONTENT ===== */
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--brown-dark);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    border-radius: 2px;
+  }
+
+  .section-subtitle {
+    color: var(--brown-light);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 0.8rem;
+  }
+
+  /* ===== SPECS ===== */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .spec-card {
+    background: var(--cream);
+    border: 2px solid rgba(200,150,62,0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spec-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+  }
+
+  .spec-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(200,150,62,0.2);
+  }
+
+  .spec-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .spec-card h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--brown-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .spec-card p {
+    font-size: 0.9rem;
+    color: var(--brown-mid);
+    line-height: 1.7;
+  }
+
+  /* ===== DEPARTMENTS ===== */
+  .departments {
+    background: linear-gradient(135deg, var(--brown-dark) 0%, #4A1E05 100%);
+    padding: 3rem 2rem;
+    margin: 0 -2rem;
+  }
+
+  .dept-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--gold-light);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  }
+
+  .dept-subtitle {
+    text-align: center;
+    color: #A88004;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+  }
+
+
+  .dept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .dept-card {
+    background: rgba(255,213,145,0.05);
+    border: 1px solid rgba(200,150,62,0.25);
+    border-radius: 12px;
+    padding: 1.8rem 1.5rem;
+    transition: all 0.25s;
+    cursor: default;
+  }
+
+  .dept-card:hover {
+    background: rgba(255,213,145,0.1);
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+
+  .dept-badge {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .badge-intel { background: #1A1A2E; color: #7B7BFF; border: 1px solid #3A3A8E; }
+  .badge-police { background: #1A2A1A; color: #5ABA5A; border: 1px solid #2A6A2A; }
+  .badge-civil { background: #2A1A1A; color: #E86060; border: 1px solid #8A3030; }
+  .badge-army { background: #1A1A0A; color: #B8A830; border: 1px solid #6A6018; }
+
+  .dept-card h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--gold-light);
+    margin-bottom: 0.7rem;
+  }
+
+  .dept-card p {
+    font-size: 0.88rem;
+    color: #B8956A;
+    line-height: 1.7;
+  }
+
+  /* ===== CIVILIAN ===== */
+  .civilian-section {
+    padding: 3rem 0;
+  }
+
+  .jobs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .job-item {
+    background: var(--cream);
+    border: 1px solid rgba(200,150,62,0.3);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--brown-dark);
+    transition: all 0.2s;
+  }
+
+  .job-item:hover {
+    border-color: var(--gold);
+    background: #FFF3D0;
+    transform: translateX(-4px);
+  }
+
+  .job-icon { font-size: 1.5rem; }
+
+  /* ===== FEATURES ===== */
+  .features {
+    background: var(--brown-dark);
+    padding: 3rem 2rem;
+    margin: 3rem -2rem 0;
+  }
+
+  .features-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .feat-title {
+    color: var(--gold-light);
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feat-card {
+    background: rgba(255,213,145,0.05);
+    border: 1px solid rgba(200,150,62,0.2);
+    border-radius: 12px;
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    transition: all 0.25s;
+  }
+
+  .feat-card:hover {
+    background: rgba(255,213,145,0.1);
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .feat-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+
+  .feat-card h3 {
+    color: var(--gold-light);
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+  }
+
+  .feat-card p {
+    color: #A88040;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+.cta-section {
+    background-color: #FFD591; /* لون الخلفية المعتمد لديك */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cta-logo {
+    width: 80px;           /* حجم اللوجو داخل الـ CTA */
+    height: auto;
+    margin-bottom: 25px;    /* مسافة بين اللوجو والكلام */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;     /* لضمان التوسط في المنتصف */
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2)); /* إضافة ظل خفيف لإبراز اللوجو الشفاف */
+}
+
+.cta-logo:hover {
+    animation: pulse 1.5s infinite; /* إضافة حركة نبض خفيفة للفت الانتباه */
+}
+  /* ===== QUOTE ===== */
+  .quote-section {
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--brown-light) 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin: 0 -2rem;
+  }
+
+  .quote-text {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 800;
+    color: var(--brown-dark);
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    line-height: 1.7;
+  }
+
+  .quote-text::before { content: '"'; }
+  .quote-text::after { content: '"'; }
+
+  /* ===== CTA ===== */
+  .cta {
+    background: var(--brown-dark);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .cta h2 {
+    color: var(--gold-light);
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+
+  .cta p {
+    color: #A88040;
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1A0A00;
+    padding: 2rem;
+    text-align: center;
+    border-top: 2px solid var(--gold-dark);
+  }
+
+  .footer-logo {
+    width: 60px;
+    margin: 0 auto 1rem;
+    display: block;
+    opacity: 0.8;
+  }
+
+  footer p {
+    color: #6B4A20;
+    font-size: 0.85rem;
+  }
+
+  footer .footer-flags {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ===== DECORATIVE ===== */
+  .jordan-stripe {
+    height: 6px;
+    background: linear-gradient(90deg, var(--black) 33.33%, var(--green-jordan) 33.33%, var(--green-jordan) 66.66%, var(--red-jordan) 66.66%);
+  }
+
+  /* Scroll animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 300px) {
+    nav { display: none; }
+    .hero-logo { width: 300px; height: 300px; }
+    .departments { margin: 0 -2rem; }
+    .features { margin: 3rem -2rem 0; }
+  }
+  .media-section {
+  padding: 40px;
+}
+
+.media-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.media-card {
+  background: #111;
+  color: white;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#media-gallery {
+  color: #ffa600;
+}
+
+.media-box {
+  width: 100%; /* 👈 هنا الحل */
+  height: 250px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.media-box img,
+.media-box video,
+.media-box iframe { /* 👈 أضفت iframe */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  border-radius: 12px;
+}
+.media-box iframe {
+  width: 100%;
+  height: calc(100% + 80px);
+  margin-top: -40px;
+  border: none;
+  border-radius: 12px;
+}
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #d3a969;
+}
+
+body {
+  font-family: Arial;
+  direction: rtl;
+  background: #d3a969;
+  color: #fff;
+}
+
+.nav-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+}
+body {
+  font-family: Arial;
+  direction: rtl;
+  background: #cf9650;
+  color: #fff;
+}
+
+/* زر القائمة */
+.item {
+  cursor: pointer;
+  padding: 12px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #b8860b, #d4af37);
+  border-radius: 10px;
+  color: #111;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* السهم */
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.sub-item .text {
+    display: none; 
+    background-color: rgba(0, 0, 0, 0.3); /* خلفية خفيفة للنص */
+    padding: 15px;
+    margin-top: 10px;
+    border-right: 3px solid #FFD591; /* خط جانبي بلون شعار السيرفر */
+    line-height: 1.6;
+    color: #eee;
+    border-radius: 5px;
+    text-align: right; /* محاذاة النص لليمين */
+}
+
+/* تنسيق زر القائمة نفسه */
+.sub-item {
+    cursor: pointer;
+    background: rgba(255, 213, 145, 0.1);
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: bold;
+    color: #FFD591;
+}
+
+.sub-item:hover {
+    background: rgba(255, 213, 145, 0.2);
+}
+/* واجهة الدخول */
+    #welcome-screen {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.85);
+        z-index: 30000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(15px);
+        transition: 0.5s;
+    }
+#jordanCrownPlayer {
+        /* التثبيت الدائم دائماً */
+        position: fixed;
+        top: 90px; /* المسافة الثابتة تحت الهيدر */
+        left: 20px; /* دائماً جهة اليسار لكي لا يغطي اللوجو */
+        width: 240px; /* عرض صغير جداً وأنيق */
+        
+        /* التصميم الفخم - متناسق مع تاج الأردن */
+        background: rgba(28, 14, 4, 0.9); /* بني غامق */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 2px solid #c5a059; /* ذهبي تاج الأردن */
+        border-radius: 12px;
+        padding: 10px;
+        color: white;
+        z-index: 10000; /* أعلى من كل شيء في الصفحة */
+        direction: rtl;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        
+        /* مخفي حتى دخول الموقع */
+        display: none; 
+        box-sizing: border-box;
+    }
+
+    /* منطقة الغلاف (صغيرة جداً) */
+    .mini-cover {
+        width: 100%;
+        height: 80px; /* ارتفاع صغير */
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        border: 1px solid rgba(197, 160, 89, 0.3);
+    }
+
+    /* العنوان الصغير */
+    #trackTitle {
+        margin: 0;
+        font-size: 13px; /* خط صغير */
+        text-align: center;
+        margin-bottom: 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* لإظهار "..." إذا كان العنوان طويلاً */
+    }
+
+    /* منطقة شريط التقدم */
+    .progress-area {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 8px;
+    }
+
+    .time-text {
+        font-size: 9px;
+        color: #ccc;
+    }
+
+    .seek-slider {
+        flex-grow: 1;
+        cursor: pointer;
+        accent-color: #c5a059; /* لون ذهبي للسلايدر */
+        height: 3px;
+    }
+
+    /* الأزرار (أصغر) */
+    .mini-controls {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .control-btn {
+        background: rgba(197, 160, 89, 0.1);
+        border: 1px solid rgba(197, 160, 89, 0.4);
+        color: white;
+        width: 32px; /* صغيرة */
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        transition: 0.2s ease;
+    }
+
+    .control-btn:hover {
+        background: #c5a059;
+        color: #000;
+        transform: scale(1.1);
+    }
+
+    /* مغير الصوت الصغير جداً */
+    .vol-slider {
+        width: 100%;
+        margin-top: 8px;
+        accent-color: #fff;
+        height: 2px;
+    }
+
+    /* تنسيقات إضافية لضمان عمل الموقع */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* مثال على الهيدر لضبط المسافة */
+    header {
+        height: 80px;
+        background: #1c0e04;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10001;
+    }
+.server-entry-info {
+        display: flex;
+        justify-content: center; /* توسيط أفقي */
+        align-items: center;     /* توسيط عمودي */
+        text-align: center;
+        width: 100%;
+        padding: 40px 20px;      /* مساحة حول النص */
+        background: transparent;  /* خلفية شفافة بالكامل */
+        direction: rtl;
+    }
+
+    .server-entry-info p {
+        margin: 0;
+        /* لون ذهبي غامق فخم */
+        color: #4a3e1d; 
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 1.8;
+        /* ظل خفيف للنص ليبرز إذا كانت خلفية الموقع غامقة */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        font-family: 'Cairo', sans-serif; /* أو أي خط عربي تستخدمه */
+    }
+
+    /* تمييز اسم السيرفر بلون ذهبي أفتح قليلاً */
+    .server-entry-info span {
+        color: #ff8400; 
+        text-decoration: underline;
+    }
+
+    /* تنسيق كود F8 ليظل مقروءاً */
+    .server-entry-info code {
+        background: rgba(0, 0, 0, 0.3); /* خلفية سوداء شفافة جداً للكود */
+        color: #ffd700; /* ذهبي ساطع للكود */
+        padding: 2px 12px;
+        border-radius: 4px;
+        border: 1px solid #b8860b;
+        font-family: monospace;
+    }
+.connect-section {
+    text-align: center;
+    padding: 20px;
+}
+
+/* تنسيق الأزرار الموحد (نفس شكل الصورة) */
+.btn-gold {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(to bottom, #e2b04a, #9e7a2e);
+    color: #1a1101 !important;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    margin: 10px 0; /* مسافة بسيطة */
+    transition: transform 0.2s;
+}
+
+.btn-gold:hover {
+    transform: scale(1.05); /* حركة خفيفة عند تمرير الماوس */
+}
+
+/* حاوية الزر الثاني لضمان نزوله تحت */
+.button-container {
+    margin-top: 25px; /* المسافة التي طلبتها بين الزرين */
+}
+
+.insta-icon {
+    vertical-align: middle;
+    margin-left: 8px;
+    width: 20px;
+}
+    </style>
+</head>
+<body>
+<div id="welcome-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; z-index: 30000; transition: opacity 0.5s ease;">
+    <button onclick="enterSite()" style="padding: 15px 40px; background: none; border: 2px solid #FFD591; color: #FFD591; border-radius: 50px; cursor: pointer; font-size: 20px; position: relative; z-index: 30001;">
+        دخول إلى تاج الأردن<br>Enter Jordan Crown
+    </button>
+</div>
+
+
+<!-- HEADER -->
+<header>
+  <div class="header-logo">
+<img src="https://res.cloudinary.com/dyh9wirei/image/upload/v1778440409/logor_m7h7b7.png" alt="logo" class="logo-img">
+    <div class="header-title">
+      تاج الأردن
+      <span>Jordan Crown</span>
+    </div>
+  </div>
+  <nav>
+    <a href="#about">عن السيرفر</a>
+    <a href="#departments"> الأجهزة الحكومية</a>
+    <a href="#gang">العصابات</a>
+    <a href="#civilian">الاعمال الخاصة</a>
+    <a href="#features">المميزات</a>
+    <a href="#CREATORS">صناع المحتوى</a>
+    <a href="#media-gallery"> المعرض</a>
+     <a href="#rules">قوانين</a>
+     <a href="#connect">تواصل معنا</a>
+  </nav>
+</div>
+
+</header>
+
+
+
+<div id="jordanCrownPlayer">
+    <div id="trackCover" class="mini-cover" style="background-image: url('back.webp');"></div>
+    
+    <h3 id="trackTitle">Jordan Crown RP</h3>
+
+    <div class="progress-area">
+        <span id="currentTime" class="time-text">0:00</span>
+        <input type="range" id="seekSlider" class="seek-slider" value="0">
+        <span id="totalDuration" class="time-text">0:00</span>
+    </div>
+
+    <div class="mini-controls">
+        <button class="control-btn" onclick="prevTrack()">⏮</button>
+        <button class="control-btn" id="playPauseBtn" onclick="togglePlay()">▶</button>
+        <button class="control-btn" onclick="nextTrack()">⏭</button>
+    </div>
+
+    <input type="range" id="volSlider" class="vol-slider" min="0" max="1" step="0.01" value="1" oninput="setVolume(this.value)">
+
+    <audio id="mainAudioElement" src="https://res.cloudinary.com/dyh9wirei/video/upload/v1778440474/1song_dcqun4.mp3"></audio>
+</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="jordan-flags">🇯🇴 &nbsp; 🇯🇴</div>
+<a href="https://www.instagram.com/jordancrown01_/" target="_blank" class="logo-link">
+    <img src="https://res.cloudinary.com/dyh9wirei/image/upload/v1778452688/Untitled_image_prcezs.png" alt="logo" class="hero-logo">
+</a>
+  <h1> تاج الأردن | Jordan Crown RP</h1>
+  <h2>عالم من الواقعية.. بهوية أردنية</h2>
+  <p>الوجهة الأولى والاحترافية لمحاكي الحياة الواقعية FiveM بنظام VRP المطور، حيث يدمج بين دقة التنظيم العالي وجمال التفاصيل التي تحاكي شوارع وأجواء المملكة الأردنية الهاشمية.</p>
+   <a href="https://discord.gg/fn9aZyYPK" target="_blank"  class="btn-primary"> انضم الآن<br>Join Now <br></a>
+  
+
+   <div class="server-entry-info">
+    <p>
+       للدخول إلى السيرفر عن طريق البحث <span>Jordan Crown</span> 
+       <br>  أو عن طريق F8:<code>connect cfx.re/join/3e4d7r</code>
+    </p>
+</div> 
+</section>
+
+
+<!-- JORDAN STRIPE -->
+<div class="jordan-stripe"></div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item">
+    <span class="stat-num">VRP</span>
+    <div class="stat-label">النظام التشغيلي</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">High FPS</span>
+    <div class="stat-label">أداء عالي وسلاسة</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">5</span>
+    <div class="stat-label">أجهزة حكومية</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">24/7</span>
+    <div class="stat-label">سيرفر يعمل دائماً</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">🇯🇴</span>
+    <div class="stat-label">هوية أردنية أصيلة</div>
+  </div>
+</div>
+
+
+<!-- MAIN -->
+<div class="main-content">
+
+  <!-- ABOUT / SPECS -->
+  <section id="about" class="fade-in">
+    <h2 class="section-title">المواصفات التقنية والتنظيمية</h2>
+    <p class="section-subtitle">بنية تحتية متكاملة تضمن تجربة لعب استثنائية</p>
+
+    <div class="specs-grid">
+      <div class="spec-card">
+        <div class="spec-icon">⚙️</div>
+        <h3>القاعدة التشغيلية</h3>
+        <p>نظام VRP متطور، يمتاز بالخفة والاستقرار لضمان سلاسة اللعب وأداء عالي (High FPS) بدون تقطع أو تأخير.</p>
+      </div>
+      </button>
+
+      <div class="spec-card">
+        <div class="spec-icon">⚖️</div>
+        <h3>التنظيم الإداري</h3>
+        <p>كادر إداري يتمتع بالخبرة والعدالة، مع قوانين صارمة تضمن بيئة لعب نظيفة وخالية من التخريب.</p>
+      </div>
+      
+      <div class="spec-card">
+        <div class="spec-icon">💰</div>
+        <h3>الاقتصاد المتوازن</h3>
+        <p>نظام مالي مدروس بعناية، يتطلب النجاح وبناء الثروة جهداً واقعياً وتخطيطاً ذكياً.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- DEPARTMENTS -->
+<section id="departments" class="departments fade-in">
+  <h2 class="dept-title">القطاعات الحكومية والخدمية</h2>
+  <p class="dept-subtitle">أجهزة سيادية تحاكي الواقع الأردني بدقة متناهية</p>
+
+  <div class="dept-grid">
+    <div class="dept-card">
+      <div class="dept-badge badge-intel">دائرة المخابرات العامة</div>
+      <h3>🕵️ دائرة المخابرات العامة </h3>
+      <p>"العين الساهرة" التي تعمل بصمت. عمل استخباراتي، مراقبة سرية، ومكافحة الجرائم المنظمة. صلاحيات واسعة للعمل تحت الغطاء المدني.</p>
+    </div>
+    <div class="dept-card">
+      <div class="dept-badge badge-police">الأمن العام</div>
+      <h3>👮 مديرية الأمن العام</h3>
+      <p>دوريات خارجية، نجدة العاصمة، والسير. مجهزة بآليات تحمل شعارات الأمن العام الأردني لضبط الشارع وتطبيق القانون.</p>
+    </div>
+    <div class="dept-card">
+      <div class="dept-badge badge-police">
+      الدرك
+      </div>
+      <h3>🚓 قوات الدرك الأردنية</h3>
+      <p>
+        وحدات متخصصة بالتعامل مع الشغب، المداهمات الخطرة，
+        حماية الفعاليات الكبرى، ودعم الأجهزة الأمنية في
+        العمليات الخاصة والطوارئ.
+      </p>
+    </div>
+    <div class="dept-card">
+      <div class="dept-badge badge-civil">الدفاع المدني</div>
+      <h3>🚒 الدفاع المدني</h3>
+      <p>نظام إسعاف وإنقاذ متطور مجهز بأحدث المعدات للتعامل مع الحوادث والحرائق وتقديم المساعدة الطبية الفورية.</p>
+    </div>
+    <div class="dept-card">
+      <div class="dept-badge badge-army">الجيش العربي</div>
+      <h3>🎖️ القوات المسلحة الأردنية</h3>
+      <p>قوات النخبة تتدخل في العمليات العسكرية الكبرى، حماية الحدود، وتأمين المنشآت الحساسة في حالات الطوارئ.</p>
+    </div>
+  </div>
+</section>
+<!-- GANGS -->
+<section id="gang" class="departments fade-in">
+
+  <h2 class="dept-title">🔥 العصابات</h2>
+
+  <p class="dept-subtitle">
+    أخطر العصابات المسيطرة على شوارع المدينة
+  </p>
+
+  <div class="dept-grid">
+
+    <!-- CRIPS -->
+    <div class="dept-card">
+
+      <div class="dept-badge badge-police">
+        CRIPS
+      </div>
+
+      <h3>🔵 عصابة Crips</h3>
+
+      <p>
+      مجموعة عصابات نشأت في لوس أنجلوس وتُعرف بصراعاتها مع مجموعات منافسة، وارتبط اسمها تاريخيًا بعنف الشوارع ونشاطات غير قانونية مختلفة ضمن بعض المناطق.
+      </p>
+
+    </div>
+
+    <!-- BLOODS -->
+    <div class="dept-card">
+
+      <div class="dept-badge badge-intel">
+        BLOODS
+      </div>
+
+      <h3>🔴 عصابة Bloods</h3>
+
+      <p>
+        تحالف عصابات ظهر لاحقًا في نفس المدينة، واشتهر بالمنافسة والصراع مع الكريبس، وارتبط أيضًا بتاريخ من العنف والأنشطة غير القانونية في بعض الأحياء.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- MAIN cont -->
+<div class="main-content">
+
+  <!-- CIVILIAN -->
+  <section id="civilian" class="civilian-section fade-in">
+    <h2 class="section-title">الحياة المدنية والوظائف</h2>
+    <p class="section-subtitle">سواء كنت مواطناً صالحاً أو صاحب نفوذ، الخيارات أمامك واسعة</p>
+
+    <div class="jobs-list">
+      <div class="job-item"><span class="job-icon">🚗</span> عالم السيارات الأردنية وتعديلها</div>
+      <div class="job-item"><span class="job-icon">👷</span> شركة المقاولات </div>
+      <div class="job-item"><span class="job-icon">🐔</span> شركة دواجن</div>
+      <div class="job-item"><span class="job-icon">🛍️</span> فتح بسطة</div>
+      <div class="job-item"><span class="job-icon">🚚</span> مندوب توصيل</div>
+      <div class="job-item"><span class="job-icon">🏛️</span> وزارة النقل</div>
+      <div class="job-item"><span class="job-icon">🔫</span> تجارة السلاح</div>
+      <div class="job-item"><span class="job-icon">🧛‍♂️</span> عراب المافيا </div>
+      <div class="job-item"><span class="job-icon">🌱</span> تجارة المخدرات</div>
+  
+    </div>
+  </section>
+
+</div>
+
+<!-- QUOTE -->
+<div class="quote-section fade-in">
+  <p class="quote-text">ليست مجرد لعبة، بل هي تجربة حياة داخل مجتمع يحترم العادات والتقاليد، ويقدر الإبداع في تمثيل الأدوار</p>
+</div>
+
+<!-- FEATURES -->
+<section id="features" class="features fade-in">
+  <div class="features-inner">
+    <h2 class="feat-title">✨ ما الذي يميز تاج الأردن عن غيره؟</h2>
+    <div class="features-grid">
+      <div class="feat-card">
+        <span class="feat-icon">🗺️</span>
+        <h3>خريطة مخصصة</h3>
+        <p>لوحات إرشادية بالعربية، أعلام أردنية، ومبانٍ مشهورة تعطيك شعوراً بأنك في قلب عمّان.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🏆</span>
+        <h3>فعاليات دورية</h3>
+        <p>بطولات ومسابقات منظمة لكسر الروتين وتقديم جوائز قيمة للاعبين المميزين.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🔄</span>
+        <h3>تطوير مستمر</h3>
+        <p>تحديثات تقنية دائمة بناءً على اقتراحات المجتمع لضمان أفضل تجربة ممكنة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CONTENT CREATORS -->
+<section id="CREATORS" class="features fade-in">
+
+  <div class="features-inner">
+
+    <h2 class="feat-title">
+      🎥 صُنّاع المحتوى
+    </h2>
+
+    <div class="features-grid">
+
+      <!-- CREATOR 1 -->
+      <a href="https://kick.com/abuhema "target="_blank" class="feat-card">
+
+        <img
+          src="https://res.cloudinary.com/dyh9wirei/image/upload/v1778440408/abuhema_ryu92z.png"
+          width="100"
+          height="100"
+          style="border-radius:50%; object-fit:cover;"
+        ><br>
+
+        <h3>ABUHEMA</h3>
+
+        <p>
+          أحد الأسماء البارزة في السيرفر، عنده أسلوب بث قريب من أجواء الرول بلاي ويقدم محتوى متنوع بين اللعب والترفيه.
+        </p>
+
+      </a>
+
+     
+      <a href="https://kick.com/sliver1234"  target="_blank" class="feat-card">
+
+        <img
+          src="https://res.cloudinary.com/dyh9wirei/image/upload/v1778440409/wesam_hswrcg.png"
+          width="100"
+          height="100"
+          style="border-radius:50%; object-fit:cover;"
+        ><br>
+
+        <h3>SILVER</h3>
+
+        <p>
+          من الشخصيات النشطة في السيرفر، يقدم محتوى فيه تفاعل وألعاب وأجواء رول بلاي خفيفة وممتعة.
+        </p>
+      
+
+      </a>
+
+ <a href="https://kick.com/azr3el-kick"  target="_blank" class="feat-card">
+
+        <img
+          src="https://res.cloudinary.com/dyh9wirei/image/upload/v1778455837/azr3_n0wh4b.webp"
+          width="100"
+          height="100"
+          style="border-radius:50%; object-fit:cover;"
+        ><br>
+
+        <h3>AZR3EL</h3>
+
+        <p>
+          من الشخصيات الصاعدة في السيرفر، يقدم محتوى متنوع  فيه تفاعل وألعاب وأجواء رول بلاي جميلة وممتعة.
+        </p>
+      
+
+      </a>
+
+    </div>
+
+  </div>
+<section id="media-gallery" class="media-section fade-in">
+
+<div class="media-inner">
+  <h2 class="media-title">📸 معرض الصور والفيديوهات</h2>
+
+  <h3 class="category-title"> 👮‍♂️الأجهزة الحكومية</h3>
+  <div class="media-grid">
+
+    <div class="media-card">
+  <div class="media-box">
+    <video id="vid1" controls>
+      <source src="https://res.cloudinary.com/dyh9wirei/video/upload/v1778441196/%D8%A7%D9%84%D8%A7%D8%B1%D8%AF%D9%86_%D9%83%D9%88%D9%85%D9%86%D8%AA_fyp_fivem_%D8%A7%D9%83%D8%B3%D8%A8%D9%84%D9%88%D8%B1_ho0p7s.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+  <div class="media-card">
+  <div class="media-box">
+      <video id="vid2" controls>
+      <source src="https://res.cloudinary.com/dyh9wirei/video/upload/v1778440868/DraftResource_1769461201.179813_of7soy.mov" type="video/mp4">
+    </video>
+  </div>
+</div>
+<div class="media-card">
+  <div class="media-box">
+    <img src="https://res.cloudinary.com/dyh9wirei/image/upload/v1778440836/%D8%B3%D9%8A%D8%A8_-_Copy_jxelhq.png">
+  </div>
+</div>
+<div class="media-card">
+  <div class="media-box">
+    <img src="https://res.cloudinary.com/dyh9wirei/image/upload/%D8%B3%D9%8A%D8%A8%D8%B3_-_Copy_rhfe9v.png">
+  </div>
+</div>
+<div class="media-card">
+  <div class="media-box">
+    <img src="https://res.cloudinary.com/dyh9wirei/image/upload/v1778440836/%D8%A7%D9%85%D9%86_-_Copy_yghfs9.png">
+  </div>
+</div>
+<div class="media-card">
+  <div class="media-box">
+    <img src="https://res.cloudinary.com/dyh9wirei/image/upload/v1778440835/Screenshot_2026-01-05_233123_bvgh5r.png">
+  </div>
+</div>
+<div class="media-card">
+  <div class="media-box">
+    <img src="">
+  </div>
+</div>
+
+  </div>
+</div>
+<h3 class="category-title">🧛‍♂️العصابات </h3>
+<div class="media-grid">
+
+  <div class="media-card">
+    <div class="media-box">
+      <video id="vid3" controls>
+        <source src="https://res.cloudinary.com/dyh9wirei/video/upload/v1778441196/%D8%A7%D9%84%D8%A7%D8%B1%D8%AF%D9%86_%D9%83%D9%88%D9%85%D9%86%D8%AA_fyp_fivem_%D8%A7%D9%83%D8%B3%D8%A8%D9%84%D9%88%D8%B1_ho0p7s.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <div class="media-card">
+    <div class="media-box">
+      <video id="vid4" controls>
+        <source src="https://res.cloudinary.com/dyh9wirei/video/upload/v1778440868/DraftResource_1769461201.179813_of7soy.mov" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <div class="media-card">
+    <div class="media-box">
+      <img src="">
+    </div>
+  </div>
+
+</div>
+
+<h3 class="category-title">المواطنين🕴 </h3>
+<div class="media-grid">
+
+  <div class="media-card">
+    <div class="media-box">
+      <video id="vid5" controls>
+        <source src="https://res.cloudinary.com/dyh9wirei/video/upload/v1778440876/%D8%B1%D8%A7%D8%AC%D8%B9%D9%8A%D9%86_%D9%86%D8%B9%D9%85%D9%84_%D8%AF%D8%B1%D8%A8%D9%83%D9%87_wcvx8f.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <div class="media-card">
+    <div class="media-box">
+      <video id="vid6" controls>
+        <source src="https://res.cloudinary.com/dyh9wirei/video/upload/v1778440874/%D8%A8%D9%8A_%D8%A7%D9%85_ts4pxq.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <div class="media-card">
+    <div class="media-box">
+      <img src="">
+    </div>
+  </div>
+
+</div>
+</section>
+<section id="rules" class="features fade-in">
+
+<!-- القائمة الرئيسية -->
+<div class="main-item" onclick="toggleMain(this)">
+القوانين كاملة</div>
+
+<div class="main-menu">
+
+  <!-- قائمة داخلية 1 -->
+  <div class="sub-item" onclick="toggleText(this)">
+    قوانين السيرفر
+
+    <div class="text">
+❖ [1] - احترام الجميع و عدم السب و اهانة اي شخص مهما كانت الظروف ولو بطريقة غير مباشرة<br>
+❖ [2] - عدم وضع الروابط او وضع روابط تحتوي دعوات لسيرفرات اخرى<br>
+❖ [3] - عدم التدخل في شؤون الاخرين او شخصنة الحوارات<br>
+❖ [4] - عدم الخوض بالامور الدينية او السياسية او التطرق لها بأي شكل من الاشكال<br>
+❖ [5] - تعدد الحسابات غير مسموح به ، إمتلاك أكثر من حساب ديسكورد في السيرفر عليها باند نهائي<br>
+❖ [6] - يمنع انتحال الشخصيات الإدارية ومن يخالف هذا القانون سوف يتم تبنيده<br>
+❖ [7] - يمنع السخرية والإستهزاء من الآخرين ، وسيتم منعه من الكتابة بجميع الشاتات وإذا تكرر الأمر قد يصل إلى التحذير<br>
+❖ [8] - يمنع الاستفسار بالشات العام ، عندك استفسار أو سؤال توجه إلى الدعم الفني أو فتح تكت ( في حال المخالفة سيتم تايم أوت )    </div>
+  </div>
+
+  <!-- قائمة داخلية 2 -->
+  <div class="sub-item" onclick="toggleText(this)">
+قوانين تاج الأردن
+    <div class="text">
+- يجب عليك فهم معنى الـ RP<br>
+
+- يمنع التحدث بالسياسه والاعراض والدين وايضا المضايقات وفي حال تم رصد اي مخالفة سيتم الباند<br>
+
+- يمنع تقليد الشخصيات والاسماء الموجوده بالسيرفر بأي طريقة كانت<br>
+
+- يجب وضع اسم شخصيه واقعي<br>
+
+- يمنع دخول البيت او الشقه اثناء السيناريو<br>
+
+- يجب تشغيل برنامج التصوير مع وجود الصوت اثناء اللعب عبر برنامج جيفورس ويجب ان يكون على الشاشة كاملة ويمنع استخدام خاصية القيم كابتشر وسيتم محاسبتك في حال عدم وجوده<br>
+
+- يمنع التدخل في سيناريو قائم<br>
+
+- يمنع لبس الملابس الجيشية والعسكريه ومن ضمنها الحزام العسكري<br>
+
+- يمنع التعرض للمسعفين الا في حال تعرض لك ايضا، ويمنع سرقة وتدمير اغراض الشرطة والمسعفين<br>
+
+- تمنع الشخصنة بجميع اشكالها وانواعها<br>
+
+- يمنع إرتداء او إستعمال اي خوذة اثناء مشاركتك في اي إطلق ناري<br>
+
+- يمنع استخدام اي جرافيكس او برنامج خارجي او ملفات تساعد او تسهل طريقة اللعب<br>
+
+- يمنع منعاً باتاً السرقه او الاجرام قبل الاعصار باستثناء الحالات التالية:<br>
+  ❖ Blane county Robbery مصرف<br>
+  ❖ Jewelry Robbery محل مجوهرات<br>
+  ❖ Maze Bank بنك مركزي<br>
+
+- يمنع مشاركة معلوماتك او حساباتك الشخصية (ستيم - روكستار - فايف ام) مع اي شخص، واستخدامها لدخول السيرفر يعرض الجميع للباند النهائي<br>
+
+- يمنع التخريم أو الطلق من خلف الجدار في جميع الأماكن<br>
+
+- يمنع الاحتماء والاستفزاز بالمناطق الآمنة، ويحق استكمال السيناريو في حال الاحتماء بمناطق آمنة الا مركز الشرطة<br>
+
+- يمنع سرقة اغراض الشرطة او المسعفين<br>
+
+- يمنع القفز بالمركبة قفزات انتحارية<br>
+
+- يجب ان يكون التهديد بشكل مباشر، لا يمكنك التهديد وانت داخل المركبة<br>
+
+- في حال تم تهديد المواطن وانصاع لاوامرك لا يحق لك قتله، وفي حال عدم الانصياع ومحاولة المقاومة يحق لك قتله<br>
+
+- يمنع انتحال شخصية اي وظيفة حكومية لأي غرض كان (عقاري - موظف ورشة - موظف مطعم وغيرها)<br>    
+المناطق العسكرية<br>
+يمنع دخول اي مواطن الى هذه المناطق، واي شخص يخالف يحق لرجل الأمن القاء القبض عليه وانزال سجن 10 شهور بحقه<br>
+وفي حالة التكرار اكثر من مرة لاستفزاز الشرطة يحق لمسؤول الشرطة الموجود سجنك 30 شهر<br>
+كذلك في حال وجود شكوى يجب عليك التوجه الى مركز الشرطة القديم المتواجد بالحديقة العامة { الملكية } وطلب شرطة وكتابة بلاغ شكوى على احد الأشخاص<br>
+قوانين المعابر: في حال وجود نقطة تفتيش على احدى المعابر يجب عليك الالتزام بالسير واتباع اوامر الشرطي المتواجد على المعابر<br>
+وفي حال تم رصدك تقوم بالتخريب او محاولة عرقلة عمل العساكر سيتم سجنك 60 شهر<br>
+</div>
+</div>
+
+
+  <!-- قائمة داخلية 3 -->
+  <div class="sub-item" onclick="toggleText(this)">
+قوانين الداخلية
+    <div class="text">
+احترام المواطنين والتعامل بشكل جيد معهم -<br>
+في حال المطاردة تبدا الصدم بعد 5 ثواني تنبيه المتهم والطلق على الكفرات بعد 15 ثانيه والقتل في حال عدم الاستجابه بعد 30 ثانيه-<br>
+يمنع كلبشة المواطن وهو ميت-<br>
+يجب عليك وضع Push to Talk  في الراديو-<br>
+ممنوع تفتيش المواطن الا في داخل المركز-<br>
+يجب عليك التواجد بالراديو-<br>
+سيناريو البنك يجب وجود  5 عساكر فما فوق ليتم السيناريو-<br>
+يمنع منعا باتا بيع الاسلحة للمواطنين في حال خالفت القانون سوف يتم فصلك فورا-<br>
+يسمح إخراج المدرعات فقط في سيناريو أو مداهمة-<br>
+يجب عليك احترام أنظمة السير وعدم قطع أي إشارة الا بوجود حالة طارئة وتشغيل السفتي-<br>
+يمنع تقديم استقاله قبل مرور 7 ايام خلاف ذلك سجن 15 و غرامة نص مليون + مفصول من الامن العام-<br>
+اعلى مدة للسجن هي 15 شهر-<br>
+أي عسكري يسجن اكثر من 15 شهر سوف يتم فصله فورا-<br>
+عسكري الامن العام يقاوم شخصين فقط-<br>
+المسؤول عن الراديو هو أعلى رتبة بالراديو-<br>
+البلاغ ينتهي بعد 10 دقايق من البلاغ-<br>
+يحق للعساكر اطلاق النار فورا على القاتل المأجور اذا قام بقتل الضحيه امامهم-<br>
+عند سجن مواطن يجب عليك طلب الهوية بالاول والقول للمواطن ما هي مخالفاته-<br>
+ممنوع الخروج عن الرول بلاي الا بوجود ادمن او موافقه المواطن بالخروج عن الرول بلاي-<br>
+يمنع منعا باتا ركوب طيارات وزارة الداخلية الا اذا كان معك رتبة طيار عسكري وتكون بأمر من الوزير والنائب-<br>
+عند سجن مواطن يجب عليك طلب الهوية بالاول وإخباره بالمخالفات التي ارتكبها-<br>
+يمنع على العسكري في السيناريو طلب مسعف او ادمن للانعاش-<br>
+يحق للعسكري في حال استخدام حركه الاصبع القتل فوراً و يحق للعسكري طلب مسعف واكمال اجراءاته-<br>
+يمنع على عساكر الامن العام توصيل أو تركيب المواطنين داخل سيارة الشرطة-<br>
+في حال قام المواطن بالاستهزاء و الأستهانه على العساكر .. يحق للعساكر اطلاق النار فورا و يحاسب المتهم بعد انعاشه-<br>
+    </div>
+  </div>
+<div class="sub-item" onclick="toggleText(this)">
+قوانين المخابرات
+    <div class="text">
+جميع قوانين السيرفر تنطبق على عضو المخابرات -<br>
+احترام المواطنين والتعامل بشكل جيد معهم -<br>
+يحق للمواطنين طلب هوية منسوبي المخابرات للتأكد منهم عند استيقافهم -<br>
+يحق لمنسوبي المخابرات الكشف عن هوية العصابات والمنظمات والقبض عليهم -<br>
+يمنع تلويت عساكر المخابرات منعا باتا -<br>
+يمنع تقديم استقاله قبل مرور 7 ايام خلاف ذلك سجن 15 و غرامة نص مليون + مفصول من المخابرات -<br>
+اعلى مدة سجن هي 15 شهر  لجميع الرتبة من جندي إلى فريق اول -<br>
+يمنع منعا باتا دخول مبنى المخابرات -<br>
+يمنع منعا باتا مداهمة مقر المخابرات -<br>
+يجب على منسوبي المخابرات الالتزام بقوانين المرور وعدم قطع الإشارات إلا في الحالات الطارئة -<br>
+يحق لمنسوبي المخابرات مقاومة أي عدد من المواطنين و العصابات -<br>
+ يحق لمنسوبي المخابرات الترويج وحمل أي نوع من الممنوعات بغرض الإطاحة بمجرم ما -<br>
+يحق لأفراد المخابرات مصادرة جميع أنواع الممنوعات من المتهم داخل قسم المخابرات -<br>
+لا يحق كلبشة رتبه أعلى منك سواء في المباحث أو في الشرطه وفي حال عدم استجابة المتهم تبلغ المسؤول -<br>
+يجب عليك التواجد بالراديو -<br>
+يمنع منعا باتا طلب ترقية [ العقوبه : انزال رتبة أو تحذير ] -<br>
+في حال تم طلب دعم من قبل وزارة الداخلية أعلى رتبة يحق له الرد -<br>
+في حال استخدام القوانين للمصلحة الشخصية يفصل ويعاقب عقوبة شديدة -<br>
+عند خروج المتهم من السيرفر بعد القبض عليه تتم محاسبته من قبل ادارة السيرفر -<br>
+في حال رفض المواطن تسليم اسلحته لعضو المخابراتص تعتبر مخالفه رول بلاي ويحق لك قتله وتلويته داخل المقر أو طلب اداري -<br>
+يسمح لمنسوبي المخابرات مداهمة المناطق المشبوهة ومقرات العصابات بدون اعلان لان المخابرات تعتبر هي المباحث الجنائية<br>
+   </div>
+  </div>
+  <div class="sub-item" onclick="toggleText(this)">
+قوانين الصحه
+    <div class="text">
+احترام المواطنين والتعامل بشكل جيد معهم  -<br>
+يمنع منعا باتا تفتيش أحد منسوبي وزارة الصحه  -<br>
+يمنع إعطاء أي مواطن العدة الطبية (عقوبتها : الفصل.)  -<br>
+يمنع تشغيل السفاتي اذا ما كان عندك بلاغ  -<br>
+ممنوع تغيير الزي الرسمي للمسعفين خلال الخدمة  -<br>
+يمنع التعديل على سيارات الاسعاف  -<br>
+يمنع منعا باتا انعاش أي مواطن خارج المنطقة الامنه  -<br>
+يمنع انعاش أحد في المناطق المهجورة وفي السيناريوهات  -<br>
+ يجب عليك التواجد بالراديو  -<br>
+طلب الترقية يعرضك للانذار  -<br>
+لا يحق للمسعف قيادة الطائرة إلا بإذن من الوزير أو نائبه  -<br>
+يمنع استخدام او اخراج سياره الوزير او سياره نائب الوزير  -<br>
+يمنع منعا باتا بيع العدة الطبية ( عقوبتها : فصل.)  -<br>
+يمنع تهديد او خطف المسعفين  -<br>
+يجب الإلتزام بقوانين السير وعدم قطع الاشارات وعدم ارتكاب المخالفات المرورية الا في وجود حالة طارئة يسمح بقطع الاشارات  -<br>
+يمنع منعا باتا توصيل المواطنين  -<br>
+يمنع الركوب مع زميلك في العمل  -<br>
+يسمح فقط لوزير الصحة ونائبة استخدام سيارات غير رسمية  -<br>
+يمنع تقديم استقاله قبل مرور 7 ايام خلاف ذلك سجن 15 و غرامة نص مليون + مفصول من الصحة  -<br>
+اذا ثبت على اي مسعف خارج العمل يحمل العدة الطبية يتم سجنه 10 اشهر وفصله من الوزارة  -<br>
+في حال وجود اعدام أو انتحار أو اغتيال يمنع منعاً باتاً الإنعاش  -<br>
+تفقد تعميمات وزاره الصحة في الدسكورد دائما وعدم التغيب عن الاجتماعات<br>
+ </div>
+  </div>
+  <div class="sub-item" onclick="toggleText(this)">
+وزارةالعدل
+    <div class="text">
+الاحترام والحياد – التعامل مع جميع الأطراف بأدب وموضوعية دون تحيز<br>
+الالتزام بالرول بلاي – تطبيق الإجراءات القانونية بشكل واقعي وجدي داخل اللعبة<br>
+تنفيذ الأوامر القضائية – الالتزام بالتعليمات الصادرة عن القضاة أو الإدارة العليا<br>
+السرية القضائية – عدم مشاركة أي معلومات عن القضايا أو الأحكام خارج الفريق القانوني<br>
+الاحترافية في العمل – تقديم القرارات القانونية بدقة وبناءً على القوانين المعتمدة<br>
+التحقق من المعلومات – التأكد من صحة الأدلة والشهادات قبل اتخاذ أي قرار<br>
+التعاون مع الجهات الأخرى – التنسيق مع الشرطة، وزارة الداخلية، وفرق المخابرات عند الحاجة<br>
+توثيق القضايا – تسجيل جميع الإجراءات والأحكام بشكل مرتب للإدارة العليا<br>
+الالتزام بالقوانين العامة للسيرفر – كل أعضاء وزارة العدل ملزمون بالقوانين الأساسية<br>
+المساءلة – كل عضو مسؤول عن قراراته القانونية، وأي مخالفة قد تؤدي للعقوبة أو الإقصاء<br>
+   </div>
+  </div>
+  <div class="sub-item" onclick="toggleText(this)">
+قـوانـين الـسـرقات 
+    <div class="text">
+سينـــاريو البنـــــــك الـمركـزي <br>
+<br>
+[1] يجب على جميع المشاركين في السيناريو الانتظام ويكون في مفاوض ومساعد مفاوض من كل طرف<br>
+[2] في حال خروج احد من البنك المركزي غير الاثنين يحق للشرطة قتلهم دون تفاهم<br>
+[3] في حال بدء التفاوض يمنع دخول اي شخص الى الداخل حتى لو كرشت عليه<br>
+[4] يجب وجود شيء للتفاوض عليه مثل سيارة حكومية او رهينة وعليه تكون الرهينة مواطن حقيقي وليس متفق معاه<br>
+[5] يمنع مساعدة الاشخاص من الخارج عند بدء السيناريو الا في حالة نجاح التفاوض يحق لهم<br>
+[6] يمنع انك تستخدم قلتش وتطلع فوق الاضواء<br>
+[7] الاسلحة المسموحة فقط رشاشات بجميع انواعها و امجي و يحق للعساكر فقط استخدام السموك<br>
+ [9] يجب عليك انزال اعلان رسمي بسرقة البنك والانتظار الى قبول العساكر ويحق لك خطف اي شخص يقترب من الحدود **الخاصة بالبنك<br>
+[10] على كل رهينة او مركبة يحق لك طلب مطلب واحد فقط**<br>
+<br>
+[ مـثال ] -<br>
+<br>
+يعني في حال عندك رهينة بتطلب طلب وفي حال عندك اكثر بتطلب اكثر وممنوع تطلب مطالب تعجيزية كثير الا اذا الرهينه كان شخصية مهمه<br>
+<br>
+   سينـــاريو الـبقالة  والمجوهرات     <br>
+<br>
+[1] يجب على جميع المشاركين في السيناريو الانتظام ويكون في مفاوض ومساعد مفاوض من كل طرف<br>
+[2] في حال خروج احد من البقالة غير الاثنين يحق للشرطة قتلهم دون تفاهم<br>
+[3] في حال بدء التفاوض يمنع دخول اي شخص الى الداخل حتى لو كرشت عليه<br>
+[4] يمنع مساعدة الاشخاص من الخارج عند بدء السيناريو الا في حالة نجاح التفاوض يحق لهم<br>
+[5] الاسلحة المسموحة فقط كومبات بستل او بستل عادي ويمنع استخدام السموك للعساكر<br>
+[6] يجب عليك انزال اعلان رسمي بسرقة البقالة والانتظار الى حين قبول العساكر ويحق لك خطف اي شخص يقترب من الحدود الخاصة بالبقالة<br>
+[7] على كل رهينة او مركبة يحق لك طلب مطلب واحد فقط<br>
+  </div>
+  </div>
+  <div class="sub-item" onclick="toggleText(this)">
+قـوانين السيناريوهات
+    <div class="text">
+[◈] مـكان شراء الـعدة; مكان شراء العدة داخل المنطقة الغير امنة مسموح القتل فيه, يعتبر منطقة غير امنة عادية مسموح الخطف او التلويت<br>
+[◈] الأسلحة الـممنوعـة; اربجي , مني جن , سنايبر , , جميع انواع المتفجرات , السموك فقط يحق للعساكر , جميع انواع الشتغن <br>
+<br>
+[1] في حال نزول اعلان لسرقة مكان و يوجد رهينة يمنع مداهمة المكان من عصابة او مواطنين و يمنع للعساكر القتل الفوري يكون في تفاوض<br>
+[2] جميع اماكن السرقات تعتبر غير امنة و يمكنك القتل و التلويت فيها من الحدود، للعلم يحق للعساكر اطلاق نار خارج الحدود<br>
+[3] في حال السرقة مسموح للعساكر مداهمة المكان بدون اعلان او عد ( قتل فوري )<br>
+[4] ممنوع طلب ادمن او مسعف للانعاش داخل حدود السرقات مهما كانت الظروف القانون يشمل العصابات والعساكر والمواطنين حتى لو ما كان فيه سرقة<br>
+[5] ممنوع استخدام الخوذة في جميع اماكن السرقات ، يحق للعساكر<br>
+[6] ممنوع دخول بسيارة او موتور داخل الحدود او توقف السيارة على باب محل السرقة<br>
+[7] يمنع الطلق على اماكن السرقات وانت راكب سيارة القانون يشمل المواطنين والعصابات لا يشمل العساكر<br>
+[8] ممنوع تكون فوق المباني وتطلق على مكان السرقة حتى لو كنت عسكري<br>
+[9] مسموح التلويت للعصابات في كل اماكن السرقات داخل الحدود + يسمح للعساكر الاستيلاء على الاسلحة و الممنوعات / للتنويه يمنع تلويت العساكر<br>
+[10] في حال ما كان في سرقة وقتلت مواطن داخل الحدود يحق لك حمل المواطن ووضعه عند مكان بداية السرقة لاكمال العدد المطلوب<br>
+[11] يمنع الخطف او الاعتقال من سرقة للجميع في حال قتل شخص بالسرقة انت كعصابة يحق لك تلويته , وانت كعسكري يحق لك الاستيلاء على اغراضه او اسلحته<br>
+[12] ممنوع استخدام الحركات في جميع اماكن السرقات + الكلبشة مسموحة فقط للعساكر<br>
+[13] ممنوع اطلاق النار من خلف الزجاج في حال كان في بالسرقة زجاج<br>
+[14] ممنوع استخدام القلتشات لدخول الى منطقة يمكنك اطلاق نار منها ولا احد يراك<br>
+[15] في حال انتهاء السرقة يجب عليك الهروب قبل وصول الشرطة وفي حال وصلت الشرطة وتعرفت عليك يحق لهم الاشتباك معك وفي حال امسكاك يحق لهم اخذ جميع اغراضك واعتقالك بتهمة سرقة<br>
+[16] يمنع التدخل الخارجي منعاً باتاً حتى لو كانوا اصحابك<br>
+[17] يمنع طلب ادمن للانعاش في السرقات منعاً باتاً<br>
+[18] يمنع الرجوع الى السرقة في حال شاركت ومتت ممنوع ترجع منعاً باتاً<br>
+   </div>
+  </div>
+
+
+</div>
+</div>
+<!-- CTA -->
+
+
+ 
+<div class="cta fade-in">
+  <h2>هل أنت مستعد؟</h2>
+  <img src="https://res.cloudinary.com/dyh9wirei/image/upload/v1778440410/logo_hiqwhz.webp" alt="cta image" class="cta-image">
+<section id="connect" class="features fade-in connect-section">
+    <p>انضم الآن إلى سيرفر تاج الأردن واصنع اسمك في عالم مليء بالتحدي والمغامرة!</p>
+
+    <a href="https://discord.gg/fn9aZyYPK" target="_blank" class="btn-gold">
+        Jordan Crown انضم الآن إلى
+    </a>
+
+    <div class="button-container">
+        <a href="https://www.instagram.com/jordancrown01_/" target="_blank" class="btn-gold">
+            تابعنا على 
+            <svg class="insta-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.999 0h.002zm-.008 1.441c2.137 0 2.391.008 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.844.047 1.097.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.844.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg>
+        </a>
+    </div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-flags">Jordan Crown RP </div>
+  <span class="feat-icon"></span>
+<img src="https://res.cloudinary.com/dyh9wirei/image/upload/v1778440409/logor_m7h7b7.png" class="cta-logo">  
+<p>© 2026 تاج الأردن | Jordan Crown — جميع الحقوق محفوظة</p>
+  <p style="margin-top: 0.4rem; font-size: 0.8rem;">FiveM Roleplay Server • VRP System</p>
+</footer>
+
+<div class="jordan-stripe"></div>
+<script>
+
+  const videos = document.querySelectorAll('.media-box video');
+  const bgMusic = document.getElementById('mainAudioElement');
+
+  videos.forEach(video => {
+    video.addEventListener('play', () => {
+      // وقف الأغنية
+      bgMusic.pause();
+      // وقف باقي الفيديوهات
+      videos.forEach(other => {
+        if (other !== video) other.pause();
+      });
+    });
+
+    video.addEventListener('pause', () => {
+      // شوف إذا في فيديو شغال
+      const anyPlaying = [...videos].some(v => !v.paused);
+      if (!anyPlaying) bgMusic.play();
+    });
+
+    video.addEventListener('ended', () => {
+      const anyPlaying = [...videos].some(v => !v.paused);
+      if (!anyPlaying) bgMusic.play();
+    });
+  });
+
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/**
+ * 2. نظام القوائم المنسدلة (Toggle Menu)
+ */
+function toggleText(el) {
+    const textDiv = el.querySelector('.text');
+    if (!textDiv) return;
+
+    if (textDiv.style.display === "block") {
+        textDiv.style.display = "none";
+    } else {
+        document.querySelectorAll('.sub-item .text').forEach(d => d.style.display = "none");
+        textDiv.style.display = "block";
+    }
+}
+
+function toggleMenu(el) {
+    const submenu = el.nextElementSibling;
+    if (!submenu) return;
+    
+    if (submenu.style.maxHeight && submenu.style.maxHeight !== "0px") {
+        submenu.style.maxHeight = "0px";
+    } else {
+        document.querySelectorAll('.submenu').forEach(sub => sub.style.maxHeight = "0px");
+        submenu.style.maxHeight = submenu.scrollHeight + "px";
+    }
+}
+
+/**
+ * 3. نظام مشغل الأغاني الثابت (Jordan Crown Player)
+ */
+var currentIdx = 0;
+const player = document.getElementById("jordanCrownPlayer");
+const audio = document.getElementById('mainAudioElement');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const welcomeScreen = document.getElementById('welcome-screen');
+
+const playlist = [
+    { name: "كفو يا ابن عبدالله", file: "https://res.cloudinary.com/dyh9wirei/video/upload/v1778440474/1song_dcqun4.mp3", img: "https://res.cloudinary.com/dyh9wirei/image/upload/v1778440410/back_najaex.webp" },
+    { name: "الطابور", file: "https://res.cloudinary.com/dyh9wirei/video/upload/v1778440473/2song_uu2a8c.mp3", img: "https://res.cloudinary.com/dyh9wirei/image/upload/v1778440410/back_najaex.webp" },
+    { name: "لوح بشماغك الاحمر", file: "https://res.cloudinary.com/dyh9wirei/video/upload/v1778440473/3song_kvxuer.mp3", img: "https://res.cloudinary.com/dyh9wirei/image/upload/v1778440410/back_najaex.webp" },
+    { name: "هذا الاردن اردنا", file: "https://res.cloudinary.com/dyh9wirei/video/upload/v1778440474/4song_aubida.mp3", img: "https://res.cloudinary.com/dyh9wirei/image/upload/v1778440410/back_najaex.webp" }
+];
+
+// وظيفة الدخول إلى الموقع
+function enterSite() {
+    // إخفاء شاشة الترحيب إذا وجدت
+    if (welcomeScreen) {
+        welcomeScreen.style.opacity = '0';
+        setTimeout(() => {
+            welcomeScreen.style.display = 'none';
+        }, 500);
+    }
+    
+    // إظهار المشغل وتشغيل أول أغنية
+    if (player) {
+        player.style.display = 'block';
+        loadTrack();
+    }
+}
+
+// وظيفة تحميل المقطع
+function loadTrack() {
+    if (!audio || !playlist[currentIdx]) return;
+    
+    audio.src = playlist[currentIdx].file;
+    document.getElementById('trackTitle').innerText = playlist[currentIdx].name;
+    
+    const trackCover = document.getElementById('trackCover');
+    if (trackCover) {
+        trackCover.style.backgroundImage = `url('${playlist[currentIdx].img}')`;
+    }
+
+    audio.load();
+    audio.play().then(() => { 
+        if (playPauseBtn) playPauseBtn.innerText = "⏸"; 
+    }).catch(e => console.log("بانتظار تفاعل المستخدم لبدء التشغيل"));
+}
+
+function togglePlay() {
+    if (!audio) return;
+    if (audio.paused) { 
+        audio.play(); 
+        if (playPauseBtn) playPauseBtn.innerText = "⏸"; 
+    } else { 
+        audio.pause(); 
+        if (playPauseBtn) playPauseBtn.innerText = "▶"; 
+    }
+}
+
+function nextTrack() { 
+    currentIdx = (currentIdx + 1) % playlist.length; 
+    loadTrack(); 
+}
+
+function prevTrack() { 
+    currentIdx = (currentIdx - 1 + playlist.length) % playlist.length; 
+    loadTrack(); 
+}
+
+// التحكم في مستوى الصوت
+function setVolume(val) {
+    if (audio) audio.volume = val;
+}
+
+// تحديث السلايدر والوقت أثناء التشغيل
+if (audio) {
+    audio.ontimeupdate = () => {
+        if (audio.duration) {
+            const seekSlider = document.getElementById('seekSlider');
+            if (seekSlider) seekSlider.value = (audio.currentTime / audio.duration) * 100;
+            
+            const curTimeText = document.getElementById('currentTime');
+            const totalDurText = document.getElementById('totalDuration');
+            
+            if (curTimeText) curTimeText.innerText = formatTime(audio.currentTime);
+            if (totalDurText) totalDurText.innerText = formatTime(audio.duration);
+        }
+    };
+    audio.onended = nextTrack; // الانتقال للأغنية التالية تلقائياً
+}
+
+// التحكم في شريط التقدم (Seek)
+const seekSliderEl = document.getElementById('seekSlider');
+if (seekSliderEl) {
+    seekSliderEl.oninput = (e) => {
+        if (audio && audio.duration) {
+            audio.currentTime = audio.duration * (e.target.value / 100);
+        }
+    };
+}
+
+// دالة تنسيق الوقت (ثواني إلى دقائق:ثواني)
+function formatTime(s) {
+    let m = Math.floor(s / 60);
+    let sec = Math.floor(s % 60);
+    return m + ":" + (sec < 10 ? "0" + sec : sec);
+}
+
+// إخفاء المشغل عند تحميل الصفحة حتى يتم الضغط على "دخول"
+window.onload = () => {
+    if (player) player.style.display = 'none';
+};
+</script>
+</body>
+</html> 
