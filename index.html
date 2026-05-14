@@ -801,106 +801,191 @@ body {
         transition: 0.5s;
     }
 #jordanCrownPlayer {
-        /* التثبيت الدائم دائماً */
         position: fixed;
-        top: 90px; /* المسافة الثابتة تحت الهيدر */
-        left: 20px; /* دائماً جهة اليسار لكي لا يغطي اللوجو */
-        width: 240px; /* عرض صغير جداً وأنيق */
-        
-        /* التصميم الفخم - متناسق مع تاج الأردن */
-        background: rgba(28, 14, 4, 0.9); /* بني غامق */
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 2px solid #c5a059; /* ذهبي تاج الأردن */
-        border-radius: 12px;
-        padding: 10px;
+        top: 140px;
+        bottom: auto;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        width: min(420px, calc(100vw - 32px));
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
+        background: linear-gradient(135deg, rgba(20, 9, 2, 0.97) 0%, rgba(40, 18, 5, 0.97) 100%);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1.5px solid rgba(197, 160, 89, 0.6);
+        border-radius: 18px;
+        padding: 14px 16px 12px;
         color: white;
-        z-index: 10000; /* أعلى من كل شيء في الصفحة */
+        z-index: 10000;
         direction: rtl;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-        
-        /* مخفي حتى دخول الموقع */
-        display: none; 
+        font-family: 'Tajawal', 'Cairo', sans-serif;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(197,160,89,0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+        display: none;
         box-sizing: border-box;
     }
 
-    /* منطقة الغلاف (صغيرة جداً) */
+    #jordanCrownPlayer.player-visible {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    /* صف علوي: غلاف + معلومات الأغنية */
+    .player-top {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
     .mini-cover {
-        width: 100%;
-        height: 80px; /* ارتفاع صغير */
+        width: 52px;
+        height: 52px;
+        flex-shrink: 0;
         background-size: cover;
         background-position: center;
-        border-radius: 8px;
-        margin-bottom: 8px;
-        border: 1px solid rgba(197, 160, 89, 0.3);
+        border-radius: 10px;
+        border: 1.5px solid rgba(197, 160, 89, 0.4);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
-    /* العنوان الصغير */
+    .player-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .player-label {
+        font-size: 10px;
+        color: #c5a059;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+        opacity: 0.8;
+    }
+
     #trackTitle {
         margin: 0;
-        font-size: 13px; /* خط صغير */
-        text-align: center;
-        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; /* لإظهار "..." إذا كان العنوان طويلاً */
+        text-overflow: ellipsis;
+        line-height: 1.3;
     }
 
-    /* منطقة شريط التقدم */
+    /* شريط التقدم */
     .progress-area {
         display: flex;
         align-items: center;
-        gap: 6px;
-        margin-bottom: 8px;
+        gap: 8px;
+        margin-bottom: 10px;
     }
 
     .time-text {
-        font-size: 9px;
-        color: #ccc;
+        font-size: 10px;
+        color: rgba(197,160,89,0.7);
+        min-width: 28px;
+        font-variant-numeric: tabular-nums;
     }
 
     .seek-slider {
         flex-grow: 1;
         cursor: pointer;
-        accent-color: #c5a059; /* لون ذهبي للسلايدر */
-        height: 3px;
+        accent-color: #c5a059;
+        height: 4px;
+        border-radius: 2px;
+        appearance: none;
+        -webkit-appearance: none;
+        background: rgba(255,255,255,0.12);
     }
 
-    /* الأزرار (أصغر) */
+    .seek-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #c5a059;
+        box-shadow: 0 0 6px rgba(197,160,89,0.6);
+        cursor: pointer;
+    }
+
+    /* أزرار التحكم */
     .mini-controls {
         display: flex;
         justify-content: center;
-        gap: 8px;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
     }
 
     .control-btn {
-        background: rgba(197, 160, 89, 0.1);
-        border: 1px solid rgba(197, 160, 89, 0.4);
-        color: white;
-        width: 32px; /* صغيرة */
-        height: 32px;
+        background: rgba(197, 160, 89, 0.08);
+        border: 1px solid rgba(197, 160, 89, 0.25);
+        color: rgba(255,255,255,0.8);
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 12px;
-        transition: 0.2s ease;
+        font-size: 13px;
+        transition: all 0.2s ease;
     }
 
     .control-btn:hover {
-        background: #c5a059;
-        color: #000;
+        background: rgba(197, 160, 89, 0.25);
+        border-color: #c5a059;
+        color: #fff;
+        transform: scale(1.08);
+    }
+
+    /* زر التشغيل أكبر */
+    #playPauseBtn {
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, #c5a059, #8B6914);
+        border-color: transparent;
+        color: #fff;
+        font-size: 16px;
+        box-shadow: 0 4px 14px rgba(197,160,89,0.4);
+    }
+
+    #playPauseBtn:hover {
+        background: linear-gradient(135deg, #d4b06a, #a07820);
         transform: scale(1.1);
     }
 
-    /* مغير الصوت الصغير جداً */
+    /* صف الصوت */
+    .vol-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .vol-icon { font-size: 12px; color: rgba(197,160,89,0.6); }
+
     .vol-slider {
-        width: 100%;
-        margin-top: 8px;
-        accent-color: #fff;
-        height: 2px;
+        flex: 1;
+        cursor: pointer;
+        accent-color: rgba(197,160,89,0.6);
+        height: 3px;
+        appearance: none;
+        -webkit-appearance: none;
+        background: rgba(255,255,255,0.1);
+        border-radius: 2px;
+    }
+
+    .vol-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(197,160,89,0.8);
+        cursor: pointer;
     }
 
     /* تنسيقات إضافية لضمان عمل الموقع */
@@ -991,9 +1076,284 @@ body {
     margin-left: 8px;
     width: 20px;
 }
+
+/* زر الموسيقى - مشترك بين الديسكتوب والموبايل */
+#musicToggleBtn {
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10001;
+    display: none; /* يظهر بعد enterSite */
+    align-items: center;
+    gap: 8px;
+    background: rgba(20, 9, 2, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(197, 160, 89, 0.35);
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: rgba(255, 213, 145, 0.9);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: background 0.25s ease, border-color 0.25s ease;
+    white-space: nowrap;
+}
+
+#musicToggleBtn:active { opacity: 0.85; }
+
+#musicToggleBtn .music-btn-icon {
+    font-size: 16px;
+    animation: musicPulse 1.8s ease-in-out infinite;
+}
+
+#musicToggleBtn.player-open {
+    background: rgba(197, 160, 89, 0.2);
+    border-color: rgba(197, 160, 89, 0.6);
+}
+
+@keyframes musicPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    z-index: 200;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--gold-light);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ===== RESPONSIVE - TABLET ===== */
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        padding: 0 1rem;
+        min-height: 65px;
+        position: fixed;
+    }
+
+    .header-title { font-size: 1.1rem; }
+    .header-title span { font-size: 0.75rem; }
+    .logo-img { width: 50px; height: 50px; }
+
+    .hamburger { display: flex; }
+
+    nav {
+        display: none;
+        position: fixed;
+        top: 65px;
+        right: 0;
+        left: 0;
+        background: linear-gradient(135deg, var(--brown-dark) 0%, #5C2D0A 100%);
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0;
+        border-bottom: 2px solid var(--gold);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        z-index: 99;
+        max-height: calc(100vh - 65px);
+        overflow-y: auto;
+    }
+
+    nav.open { display: flex; }
+
+    nav a {
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(200,150,62,0.15);
+        text-align: right;
+    }
+
+    nav a:hover { background: rgba(200,150,62,0.15); }
+
+    /* Hero */
+    .hero { padding: 5rem 1rem 3rem; }
+    .hero-logo { width: 260px; height: 260px; }
+    .logo-link { margin: 0 auto 1.5rem; }
+    .hero h1 { font-size: 1.6rem; letter-spacing: 1px; }
+    .hero h2 { font-size: 1rem; }
+    .hero p { font-size: 0.95rem; }
+
+    .hero-btns { flex-direction: column; align-items: center; gap: 0.7rem; }
+    .btn-primary, .btn-secondary { width: 100%; max-width: 300px; text-align: center; font-size: 1rem; padding: 0.8rem 1.5rem; }
+
+    .server-entry-info p { font-size: 16px; }
+    .server-entry-info code { font-size: 12px; word-break: break-all; }
+
+    /* Jordan stripe */
+    .jordan-flags { font-size: 2rem; }
+
+    /* Stats */
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+    }
+    .stat-num { font-size: 1.7rem; }
+
+    /* Main content */
+    .main-content { padding: 2rem 1rem; }
+    .section-title { font-size: 1.4rem; }
+
+    /* Specs */
+    .specs-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+    /* Departments */
+    .departments { padding: 2rem 1rem; margin: 0; }
+    .dept-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .dept-title { font-size: 1.4rem; }
+
+    /* Gangs */
+    /* same as departments - uses same classes */
+
+    /* Jobs */
+    .jobs-list { grid-template-columns: 1fr; gap: 0.8rem; }
+    .job-item { padding: 1rem 1.2rem; }
+
+    /* Quote */
+    .quote-section { padding: 2rem 1rem; margin: 0; }
+    .quote-text { font-size: 1rem; }
+
+    /* Features */
+    .features { padding: 2rem 1rem; margin: 2rem 0 0; }
+    .features-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .feat-title { font-size: 1.4rem; }
+
+    /* Media gallery */
+    .media-section { padding: 20px 1rem; }
+    .media-grid { grid-template-columns: 1fr; gap: 15px; }
+    .media-box { height: 220px; }
+
+    /* Rules section */
+    #rules { padding: 2rem 1rem; margin: 0; }
+    .item { font-size: 0.95rem; }
+    .sub-item { padding: 10px 15px; font-size: 0.9rem; }
+    .sub-item .text { font-size: 0.85rem; }
+
+    /* Music player - sits just below the toggle button at top */
+    #jordanCrownPlayer {
+        top: 75px;
+        bottom: auto;
+        width: calc(100vw - 28px);
+        max-width: 400px;
+        border-radius: 14px;
+        padding: 12px 14px 10px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #jordanCrownPlayer.player-visible {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    /* زر الموسيقى - موبايل: تعديل الموضع فقط */
+    #musicToggleBtn {
+        top: 72px;
+        bottom: auto;
+    }
+
+    #musicToggleBtn:active {
+        opacity: 0.85;
+    }
+
+    /* CTA */
+    .cta { padding: 2.5rem 1rem; }
+    .cta h2 { font-size: 1.5rem; }
+
+    /* Footer */
+    footer { padding: 1.5rem 1rem; }
+    footer p { font-size: 0.8rem; }
+
+    /* Connect section */
+    .connect-section { padding: 15px; }
+    .btn-gold { padding: 12px 25px; font-size: 16px; width: 100%; max-width: 300px; text-align: center; display: block; margin: 8px auto; }
+    .button-container { margin-top: 15px; }
+
+    /* CTA image */
+    .cta-image { width: 100%; max-width: 300px; height: auto; }
+
+    /* Main menu */
+    .main-item { font-size: 1rem; }
+}
+
+/* ===== RESPONSIVE - MOBILE SMALL ===== */
+@media (max-width: 480px) {
+    .hero-logo { width: 200px; height: 200px; }
+    .hero h1 { font-size: 1.3rem; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat-num { font-size: 1.4rem; }
+    .stat-label { font-size: 0.78rem; }
+    .dept-badge { font-size: 0.7rem; padding: 0.25rem 0.7rem; }
+    .media-box { height: 190px; }
+    #jordanCrownPlayer { width: calc(100% - 20px); }
+}
+
+/* Fix body top padding for fixed header */
+@media (max-width: 768px) {
+    .hero { padding-top: 5.5rem; }
+}
+
+/* Category titles in media */
+.category-title {
+    color: var(--gold);
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .category-title { font-size: 1rem; padding: 0.4rem 0; }
+}
+
+/* Fix main-item & main-menu for mobile */
+.main-item {
+    cursor: pointer;
+    padding: 14px 20px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    border-radius: 10px;
+    color: #111;
+    font-weight: bold;
+    user-select: none;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .main-item { font-size: 0.95rem; padding: 12px 15px; }
+    .main-menu { padding: 0 5px; }
+}
     </style>
 </head>
-<body>
+<body id="top">
 <div id="welcome-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; z-index: 30000; transition: opacity 0.5s ease;">
     <button onclick="enterSite()" style="padding: 15px 40px; background: none; border: 2px solid #FFD591; color: #FFD591; border-radius: 50px; cursor: pointer; font-size: 20px; position: relative; z-index: 30001;">
         دخول إلى تاج الأردن<br>Enter Jordan Crown
@@ -1010,16 +1370,20 @@ body {
       <span>Jordan Crown</span>
     </div>
   </div>
-  <nav>
-    <a href="#about">عن السيرفر</a>
-    <a href="#departments"> الأجهزة الحكومية</a>
-    <a href="#gang">العصابات</a>
-    <a href="#civilian">الاعمال الخاصة</a>
-    <a href="#features">المميزات</a>
-    <a href="#CREATORS">صناع المحتوى</a>
-    <a href="#media-gallery"> المعرض</a>
-     <a href="#rules">قوانين</a>
-     <a href="#connect">تواصل معنا</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="القائمة" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="mainNav">
+    <a href="#top" onclick="closeNav(); window.scrollTo({top:0,behavior:'smooth'}); return false;">الرئيسية</a>
+    <a href="#about" onclick="closeNav()">عن السيرفر</a>
+    <a href="#departments" onclick="closeNav()"> الأجهزة الحكومية</a>
+    <a href="#gang" onclick="closeNav()">العصابات</a>
+    <a href="#civilian" onclick="closeNav()">الاعمال الخاصة</a>
+    <a href="#features" onclick="closeNav()">المميزات</a>
+    <a href="#CREATORS" onclick="closeNav()">صناع المحتوى</a>
+    <a href="#media-gallery" onclick="closeNav()"> المعرض</a>
+    <a href="#rules" onclick="closeNav()">قوانين</a>
+    <a href="#connect" onclick="closeNav()">تواصل معنا</a>
   </nav>
 </div>
 
@@ -1028,27 +1392,44 @@ body {
 
 
 <div id="jordanCrownPlayer">
-    <div id="trackCover" class="mini-cover" style="background-image: url('back.webp');"></div>
-    
-    <h3 id="trackTitle">Jordan Crown RP</h3>
+    <!-- صف الغلاف والمعلومات -->
+    <div class="player-top">
+        <div id="trackCover" class="mini-cover" style="background-image: url('https://res.cloudinary.com/dyh9wirei/image/upload/v1778440410/back_najaex.webp');"></div>
+        <div class="player-info">
+            <div class="player-label">🎵 Jordan Crown RP</div>
+            <h3 id="trackTitle">كفو يا ابن عبدالله</h3>
+        </div>
+    </div>
 
+    <!-- شريط التقدم -->
     <div class="progress-area">
         <span id="currentTime" class="time-text">0:00</span>
         <input type="range" id="seekSlider" class="seek-slider" value="0">
         <span id="totalDuration" class="time-text">0:00</span>
     </div>
 
+    <!-- أزرار التحكم -->
     <div class="mini-controls">
-        <button class="control-btn" onclick="prevTrack()">⏮</button>
-        <button class="control-btn" id="playPauseBtn" onclick="togglePlay()">▶</button>
-        <button class="control-btn" onclick="nextTrack()">⏭</button>
+        <button class="control-btn" onclick="prevTrack()" title="السابق">⏮</button>
+        <button class="control-btn" id="playPauseBtn" onclick="togglePlay()" title="تشغيل/إيقاف">▶</button>
+        <button class="control-btn" onclick="nextTrack()" title="التالي">⏭</button>
     </div>
 
-    <input type="range" id="volSlider" class="vol-slider" min="0" max="1" step="0.01" value="1" oninput="setVolume(this.value)">
+    <!-- الصوت -->
+    <div class="vol-row">
+        <span class="vol-icon">🔇</span>
+        <input type="range" id="volSlider" class="vol-slider" min="0" max="1" step="0.01" value="0.8" oninput="setVolume(this.value)">
+        <span class="vol-icon">🔊</span>
+    </div>
 
     <audio id="mainAudioElement" src="https://res.cloudinary.com/dyh9wirei/video/upload/v1778440474/1song_dcqun4.mp3"></audio>
 </div>
-<!-- HERO -->
+
+<!-- زر فتح/سكر مشغل الأغاني (موبايل فقط) -->
+<button id="musicToggleBtn" onclick="toggleMusicPlayer()" style="display:none;">
+    <span class="music-btn-icon">🎵</span>
+    <span id="musicBtnText">الأغاني</span>
+</button>
 <section class="hero">
   <div class="jordan-flags">🇯🇴 &nbsp; 🇯🇴</div>
 <a href="https://www.instagram.com/jordancrown01_/" target="_blank" class="logo-link">
@@ -1821,6 +2202,7 @@ function enterSite() {
     // إظهار المشغل وتشغيل أول أغنية
     if (player) {
         player.style.display = 'block';
+        setupMusicUI();
         loadTrack();
     }
 }
@@ -1907,6 +2289,90 @@ function formatTime(s) {
 window.onload = () => {
     if (player) player.style.display = 'none';
 };
+
+function toggleNav() {
+    const nav = document.getElementById('mainNav');
+    const btn = document.getElementById('hamburgerBtn');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+}
+
+function closeNav() {
+    const nav = document.getElementById('mainNav');
+    const btn = document.getElementById('hamburgerBtn');
+    nav.classList.remove('open');
+    btn.classList.remove('open');
+}
+
+function toggleMusicPlayer() {
+    const player = document.getElementById('jordanCrownPlayer');
+    const btn = document.getElementById('musicToggleBtn');
+    const btnText = document.getElementById('musicBtnText');
+    const isOpen = player.classList.contains('player-visible');
+    if (isOpen) {
+        player.classList.remove('player-visible');
+        player.style.opacity = '0';
+        player.style.pointerEvents = 'none';
+        player.style.transform = 'translateX(-50%) translateY(-10px)';
+        btn.classList.remove('player-open');
+        btnText.textContent = 'الأغاني';
+        btn.querySelector('.music-btn-icon').textContent = '🎵';
+    } else {
+        player.classList.add('player-visible');
+        player.style.opacity = '1';
+        player.style.pointerEvents = 'all';
+        player.style.transform = 'translateX(-50%) translateY(0)';
+        btn.classList.add('player-open');
+        btnText.textContent = 'أغلق';
+        btn.querySelector('.music-btn-icon').textContent = '✕';
+    }
+}
+
+function setupMusicUI() {
+    const isMobile = window.innerWidth <= 768;
+    const btn = document.getElementById('musicToggleBtn');
+    const player = document.getElementById('jordanCrownPlayer');
+    if (!btn || !player) return;
+
+    btn.style.display = 'flex';
+
+    if (isMobile) {
+        btn.style.top = '72px';
+        player.style.top = '118px';
+    } else {
+        btn.style.top = '90px';
+        player.style.top = '140px';
+    }
+
+    // إذا مو مفتوح خليه مخفي
+    if (!player.classList.contains('player-visible')) {
+        player.style.opacity = '0';
+        player.style.pointerEvents = 'none';
+    }
+}
+
+window.addEventListener('resize', setupMusicUI);
+
+function toggleMain(el) {
+    const menu = el.nextElementSibling;
+    if (!menu) return;
+    if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+        menu.style.maxHeight = '0px';
+        menu.style.overflow = 'hidden';
+    } else {
+        menu.style.maxHeight = menu.scrollHeight + 'px';
+        menu.style.overflow = 'visible';
+    }
+}
+
+document.addEventListener('click', function(e) {
+    const nav = document.getElementById('mainNav');
+    const btn = document.getElementById('hamburgerBtn');
+    if (nav && btn && !nav.contains(e.target) && !btn.contains(e.target)) {
+        nav.classList.remove('open');
+        btn.classList.remove('open');
+    }
+});
 
 
 </script>
